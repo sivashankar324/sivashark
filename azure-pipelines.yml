@@ -6,12 +6,11 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
+# File: simple-param.yml
+parameters:
+- name: yesNo # name of the parameter; required
+  type: boolean # data type of the parameter; required
+  default: false
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
+- script: echo ${{ parameters.yesNo }}
